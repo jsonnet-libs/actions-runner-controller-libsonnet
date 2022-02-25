@@ -33,7 +33,11 @@ permalink: /0.20/actions/v1alpha1/runnerReplicaSet/
   * [`fn withUid(uid)`](#fn-metadatawithuid)
 * [`obj spec`](#obj-spec)
   * [`fn withReplicas(replicas)`](#fn-specwithreplicas)
-  * [`fn withSelector(selector)`](#fn-specwithselector)
+  * [`obj spec.selector`](#obj-specselector)
+    * [`fn withMatchExpressions(matchExpressions)`](#fn-specselectorwithmatchexpressions)
+    * [`fn withMatchExpressionsMixin(matchExpressions)`](#fn-specselectorwithmatchexpressionsmixin)
+    * [`fn withMatchLabels(matchLabels)`](#fn-specselectorwithmatchlabels)
+    * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specselectorwithmatchlabelsmixin)
   * [`obj spec.template`](#obj-spectemplate)
     * [`obj spec.template.metadata`](#obj-spectemplatemetadata)
       * [`fn withAnnotations(annotations)`](#fn-spectemplatemetadatawithannotations)
@@ -350,13 +354,45 @@ withReplicas(replicas)
 
 
 
-### fn spec.withSelector
-
-```ts
-withSelector(selector)
-```
+## obj spec.selector
 
 "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects."
+
+### fn spec.selector.withMatchExpressions
+
+```ts
+withMatchExpressions(matchExpressions)
+```
+
+"matchExpressions is a list of label selector requirements. The requirements are ANDed."
+
+### fn spec.selector.withMatchExpressionsMixin
+
+```ts
+withMatchExpressionsMixin(matchExpressions)
+```
+
+"matchExpressions is a list of label selector requirements. The requirements are ANDed."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.selector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed."
+
+### fn spec.selector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed."
+
+**Note:** This function appends passed data to existing values
 
 ## obj spec.template
 
