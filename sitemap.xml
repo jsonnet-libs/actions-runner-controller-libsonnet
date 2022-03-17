@@ -2,87 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/horizontalRunnerAutoscaler/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/runner/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/runnerDeployment/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/runnerReplicaSet/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.20/actions/v1alpha1/runnerSet/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/horizontalRunnerAutoscaler/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/runner/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/runnerDeployment/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/runnerReplicaSet/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.21/actions/v1alpha1/runnerSet/</loc>
-         <lastmod>2022-03-11</lastmod>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/horizontalRunnerAutoscaler/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/runner/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/runnerDeployment/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/runnerReplicaSet/</loc>
+         <lastmod>2022-03-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://jsonnet-libs.github.io/actions-runner-controller-libsonnet/0.22/actions/v1alpha1/runnerSet/</loc>
+         <lastmod>2022-03-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
