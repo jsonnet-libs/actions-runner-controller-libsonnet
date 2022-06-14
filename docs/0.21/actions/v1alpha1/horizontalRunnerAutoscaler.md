@@ -22,8 +22,6 @@ permalink: /0.21/actions/v1alpha1/horizontalRunnerAutoscaler/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -43,9 +41,48 @@ permalink: /0.21/actions/v1alpha1/horizontalRunnerAutoscaler/
   * [`fn withScaleUpTriggersMixin(scaleUpTriggers)`](#fn-specwithscaleuptriggersmixin)
   * [`fn withScheduledOverrides(scheduledOverrides)`](#fn-specwithscheduledoverrides)
   * [`fn withScheduledOverridesMixin(scheduledOverrides)`](#fn-specwithscheduledoverridesmixin)
+  * [`obj spec.capacityReservations`](#obj-speccapacityreservations)
+    * [`fn withExpirationTime(expirationTime)`](#fn-speccapacityreservationswithexpirationtime)
+    * [`fn withName(name)`](#fn-speccapacityreservationswithname)
+    * [`fn withReplicas(replicas)`](#fn-speccapacityreservationswithreplicas)
+  * [`obj spec.metrics`](#obj-specmetrics)
+    * [`fn withRepositoryNames(repositoryNames)`](#fn-specmetricswithrepositorynames)
+    * [`fn withRepositoryNamesMixin(repositoryNames)`](#fn-specmetricswithrepositorynamesmixin)
+    * [`fn withScaleDownAdjustment(scaleDownAdjustment)`](#fn-specmetricswithscaledownadjustment)
+    * [`fn withScaleDownFactor(scaleDownFactor)`](#fn-specmetricswithscaledownfactor)
+    * [`fn withScaleDownThreshold(scaleDownThreshold)`](#fn-specmetricswithscaledownthreshold)
+    * [`fn withScaleUpAdjustment(scaleUpAdjustment)`](#fn-specmetricswithscaleupadjustment)
+    * [`fn withScaleUpFactor(scaleUpFactor)`](#fn-specmetricswithscaleupfactor)
+    * [`fn withScaleUpThreshold(scaleUpThreshold)`](#fn-specmetricswithscaleupthreshold)
+    * [`fn withType(type)`](#fn-specmetricswithtype)
   * [`obj spec.scaleTargetRef`](#obj-specscaletargetref)
     * [`fn withKind(kind)`](#fn-specscaletargetrefwithkind)
     * [`fn withName(name)`](#fn-specscaletargetrefwithname)
+  * [`obj spec.scaleUpTriggers`](#obj-specscaleuptriggers)
+    * [`fn withAmount(amount)`](#fn-specscaleuptriggerswithamount)
+    * [`fn withDuration(duration)`](#fn-specscaleuptriggerswithduration)
+    * [`obj spec.scaleUpTriggers.githubEvent`](#obj-specscaleuptriggersgithubevent)
+      * [`fn withPush(push)`](#fn-specscaleuptriggersgithubeventwithpush)
+      * [`fn withPushMixin(push)`](#fn-specscaleuptriggersgithubeventwithpushmixin)
+      * [`obj spec.scaleUpTriggers.githubEvent.checkRun`](#obj-specscaleuptriggersgithubeventcheckrun)
+        * [`fn withNames(names)`](#fn-specscaleuptriggersgithubeventcheckrunwithnames)
+        * [`fn withNamesMixin(names)`](#fn-specscaleuptriggersgithubeventcheckrunwithnamesmixin)
+        * [`fn withRepositories(repositories)`](#fn-specscaleuptriggersgithubeventcheckrunwithrepositories)
+        * [`fn withRepositoriesMixin(repositories)`](#fn-specscaleuptriggersgithubeventcheckrunwithrepositoriesmixin)
+        * [`fn withTypes(types)`](#fn-specscaleuptriggersgithubeventcheckrunwithtypes)
+        * [`fn withTypesMixin(types)`](#fn-specscaleuptriggersgithubeventcheckrunwithtypesmixin)
+      * [`obj spec.scaleUpTriggers.githubEvent.pullRequest`](#obj-specscaleuptriggersgithubeventpullrequest)
+        * [`fn withBranches(branches)`](#fn-specscaleuptriggersgithubeventpullrequestwithbranches)
+        * [`fn withBranchesMixin(branches)`](#fn-specscaleuptriggersgithubeventpullrequestwithbranchesmixin)
+        * [`fn withTypes(types)`](#fn-specscaleuptriggersgithubeventpullrequestwithtypes)
+        * [`fn withTypesMixin(types)`](#fn-specscaleuptriggersgithubeventpullrequestwithtypesmixin)
+  * [`obj spec.scheduledOverrides`](#obj-specscheduledoverrides)
+    * [`fn withEndTime(endTime)`](#fn-specscheduledoverrideswithendtime)
+    * [`fn withMinReplicas(minReplicas)`](#fn-specscheduledoverrideswithminreplicas)
+    * [`fn withStartTime(startTime)`](#fn-specscheduledoverrideswithstarttime)
+    * [`obj spec.scheduledOverrides.recurrenceRule`](#obj-specscheduledoverridesrecurrencerule)
+      * [`fn withFrequency(frequency)`](#fn-specscheduledoverridesrecurrencerulewithfrequency)
+      * [`fn withUntilTime(untilTime)`](#fn-specscheduledoverridesrecurrencerulewithuntiltime)
 
 ## Fields
 
@@ -160,24 +197,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -339,6 +358,112 @@ withScheduledOverridesMixin(scheduledOverrides)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.capacityReservations
+
+
+
+### fn spec.capacityReservations.withExpirationTime
+
+```ts
+withExpirationTime(expirationTime)
+```
+
+
+
+### fn spec.capacityReservations.withName
+
+```ts
+withName(name)
+```
+
+
+
+### fn spec.capacityReservations.withReplicas
+
+```ts
+withReplicas(replicas)
+```
+
+
+
+## obj spec.metrics
+
+"Metrics is the collection of various metric targets to calculate desired number of runners"
+
+### fn spec.metrics.withRepositoryNames
+
+```ts
+withRepositoryNames(repositoryNames)
+```
+
+"RepositoryNames is the list of repository names to be used for calculating the metric. For example, a repository name is the REPO part of `github.com/USER/REPO`."
+
+### fn spec.metrics.withRepositoryNamesMixin
+
+```ts
+withRepositoryNamesMixin(repositoryNames)
+```
+
+"RepositoryNames is the list of repository names to be used for calculating the metric. For example, a repository name is the REPO part of `github.com/USER/REPO`."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.metrics.withScaleDownAdjustment
+
+```ts
+withScaleDownAdjustment(scaleDownAdjustment)
+```
+
+"ScaleDownAdjustment is the number of runners removed on scale-down. You can only specify either ScaleDownFactor or ScaleDownAdjustment."
+
+### fn spec.metrics.withScaleDownFactor
+
+```ts
+withScaleDownFactor(scaleDownFactor)
+```
+
+"ScaleDownFactor is the multiplicative factor applied to the current number of runners used to determine how many pods should be removed."
+
+### fn spec.metrics.withScaleDownThreshold
+
+```ts
+withScaleDownThreshold(scaleDownThreshold)
+```
+
+"ScaleDownThreshold is the percentage of busy runners less than which will trigger the hpa to scale the runners down."
+
+### fn spec.metrics.withScaleUpAdjustment
+
+```ts
+withScaleUpAdjustment(scaleUpAdjustment)
+```
+
+"ScaleUpAdjustment is the number of runners added on scale-up. You can only specify either ScaleUpFactor or ScaleUpAdjustment."
+
+### fn spec.metrics.withScaleUpFactor
+
+```ts
+withScaleUpFactor(scaleUpFactor)
+```
+
+"ScaleUpFactor is the multiplicative factor applied to the current number of runners used to determine how many pods should be added."
+
+### fn spec.metrics.withScaleUpThreshold
+
+```ts
+withScaleUpThreshold(scaleUpThreshold)
+```
+
+"ScaleUpThreshold is the percentage of busy runners greater than which will trigger the hpa to scale runners up."
+
+### fn spec.metrics.withType
+
+```ts
+withType(type)
+```
+
+"Type is the type of metric to be used for autoscaling. The only supported Type is TotalNumberOfQueuedAndInProgressWorkflowRuns"
+
 ## obj spec.scaleTargetRef
 
 "ScaleTargetRef sis the reference to scaled resource like RunnerDeployment"
@@ -358,3 +483,191 @@ withName(name)
 ```
 
 "Name is the name of resource being referenced"
+
+## obj spec.scaleUpTriggers
+
+"ScaleUpTriggers is an experimental feature to increase the desired replicas by 1 on each webhook requested received by the webhookBasedAutoscaler. \n This feature requires you to also enable and deploy the webhookBasedAutoscaler onto your cluster. \n Note that the added runners remain until the next sync period at least, and they may or may not be used by GitHub Actions depending on the timing. They are intended to be used to gain \"resource slack\" immediately after you receive a webhook from GitHub, so that you can loosely expect MinReplicas runners to be always available."
+
+### fn spec.scaleUpTriggers.withAmount
+
+```ts
+withAmount(amount)
+```
+
+
+
+### fn spec.scaleUpTriggers.withDuration
+
+```ts
+withDuration(duration)
+```
+
+
+
+## obj spec.scaleUpTriggers.githubEvent
+
+
+
+### fn spec.scaleUpTriggers.githubEvent.withPush
+
+```ts
+withPush(push)
+```
+
+"PushSpec is the condition for triggering scale-up on push event Also see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push"
+
+### fn spec.scaleUpTriggers.githubEvent.withPushMixin
+
+```ts
+withPushMixin(push)
+```
+
+"PushSpec is the condition for triggering scale-up on push event Also see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#push"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.scaleUpTriggers.githubEvent.checkRun
+
+"https://docs.github.com/en/actions/reference/events-that-trigger-workflows#check_run"
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withNames
+
+```ts
+withNames(names)
+```
+
+"Names is a list of GitHub Actions glob patterns. Any check_run event whose name matches one of patterns in the list can trigger autoscaling. Note that check_run name seem to equal to the job name you've defined in your actions workflow yaml file. So it is very likely that you can utilize this to trigger depending on the job."
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withNamesMixin
+
+```ts
+withNamesMixin(names)
+```
+
+"Names is a list of GitHub Actions glob patterns. Any check_run event whose name matches one of patterns in the list can trigger autoscaling. Note that check_run name seem to equal to the job name you've defined in your actions workflow yaml file. So it is very likely that you can utilize this to trigger depending on the job."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withRepositories
+
+```ts
+withRepositories(repositories)
+```
+
+"Repositories is a list of GitHub repositories. Any check_run event whose repository matches one of repositories in the list can trigger autoscaling."
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withRepositoriesMixin
+
+```ts
+withRepositoriesMixin(repositories)
+```
+
+"Repositories is a list of GitHub repositories. Any check_run event whose repository matches one of repositories in the list can trigger autoscaling."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withTypes
+
+```ts
+withTypes(types)
+```
+
+
+
+### fn spec.scaleUpTriggers.githubEvent.checkRun.withTypesMixin
+
+```ts
+withTypesMixin(types)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.scaleUpTriggers.githubEvent.pullRequest
+
+"https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request"
+
+### fn spec.scaleUpTriggers.githubEvent.pullRequest.withBranches
+
+```ts
+withBranches(branches)
+```
+
+
+
+### fn spec.scaleUpTriggers.githubEvent.pullRequest.withBranchesMixin
+
+```ts
+withBranchesMixin(branches)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.scaleUpTriggers.githubEvent.pullRequest.withTypes
+
+```ts
+withTypes(types)
+```
+
+
+
+### fn spec.scaleUpTriggers.githubEvent.pullRequest.withTypesMixin
+
+```ts
+withTypesMixin(types)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.scheduledOverrides
+
+"ScheduledOverrides is the list of ScheduledOverride. It can be used to override a few fields of HorizontalRunnerAutoscalerSpec on schedule. The earlier a scheduled override is, the higher it is prioritized."
+
+### fn spec.scheduledOverrides.withEndTime
+
+```ts
+withEndTime(endTime)
+```
+
+"EndTime is the time at which the first override ends."
+
+### fn spec.scheduledOverrides.withMinReplicas
+
+```ts
+withMinReplicas(minReplicas)
+```
+
+"MinReplicas is the number of runners while overriding. If omitted, it doesn't override minReplicas."
+
+### fn spec.scheduledOverrides.withStartTime
+
+```ts
+withStartTime(startTime)
+```
+
+"StartTime is the time at which the first override starts."
+
+## obj spec.scheduledOverrides.recurrenceRule
+
+
+
+### fn spec.scheduledOverrides.recurrenceRule.withFrequency
+
+```ts
+withFrequency(frequency)
+```
+
+"Frequency is the name of a predefined interval of each recurrence. The valid values are \"Daily\", \"Weekly\", \"Monthly\", and \"Yearly\". If empty, the corresponding override happens only once."
+
+### fn spec.scheduledOverrides.recurrenceRule.withUntilTime
+
+```ts
+withUntilTime(untilTime)
+```
+
+"UntilTime is the time of the final recurrence. If empty, the schedule recurs forever."
