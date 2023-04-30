@@ -1281,6 +1281,24 @@ permalink: /0.25/actions/v1alpha1/runnerSet/
           * [`fn withOperator(operator)`](#fn-specvolumeclaimtemplatesspecselectormatchexpressionswithoperator)
           * [`fn withValues(values)`](#fn-specvolumeclaimtemplatesspecselectormatchexpressionswithvalues)
           * [`fn withValuesMixin(values)`](#fn-specvolumeclaimtemplatesspecselectormatchexpressionswithvaluesmixin)
+    * [`obj spec.volumeClaimTemplates.status`](#obj-specvolumeclaimtemplatesstatus)
+      * [`fn withAccessModes(accessModes)`](#fn-specvolumeclaimtemplatesstatuswithaccessmodes)
+      * [`fn withAccessModesMixin(accessModes)`](#fn-specvolumeclaimtemplatesstatuswithaccessmodesmixin)
+      * [`fn withAllocatedResources(allocatedResources)`](#fn-specvolumeclaimtemplatesstatuswithallocatedresources)
+      * [`fn withAllocatedResourcesMixin(allocatedResources)`](#fn-specvolumeclaimtemplatesstatuswithallocatedresourcesmixin)
+      * [`fn withCapacity(capacity)`](#fn-specvolumeclaimtemplatesstatuswithcapacity)
+      * [`fn withCapacityMixin(capacity)`](#fn-specvolumeclaimtemplatesstatuswithcapacitymixin)
+      * [`fn withConditions(conditions)`](#fn-specvolumeclaimtemplatesstatuswithconditions)
+      * [`fn withConditionsMixin(conditions)`](#fn-specvolumeclaimtemplatesstatuswithconditionsmixin)
+      * [`fn withPhase(phase)`](#fn-specvolumeclaimtemplatesstatuswithphase)
+      * [`fn withResizeStatus(resizeStatus)`](#fn-specvolumeclaimtemplatesstatuswithresizestatus)
+      * [`obj spec.volumeClaimTemplates.status.conditions`](#obj-specvolumeclaimtemplatesstatusconditions)
+        * [`fn withLastProbeTime(lastProbeTime)`](#fn-specvolumeclaimtemplatesstatusconditionswithlastprobetime)
+        * [`fn withLastTransitionTime(lastTransitionTime)`](#fn-specvolumeclaimtemplatesstatusconditionswithlasttransitiontime)
+        * [`fn withMessage(message)`](#fn-specvolumeclaimtemplatesstatusconditionswithmessage)
+        * [`fn withReason(reason)`](#fn-specvolumeclaimtemplatesstatusconditionswithreason)
+        * [`fn withStatus(status)`](#fn-specvolumeclaimtemplatesstatusconditionswithstatus)
+        * [`fn withType(type)`](#fn-specvolumeclaimtemplatesstatusconditionswithtype)
   * [`obj spec.workVolumeClaimTemplate`](#obj-specworkvolumeclaimtemplate)
     * [`fn withAccessModes(accessModes)`](#fn-specworkvolumeclaimtemplatewithaccessmodes)
     * [`fn withAccessModesMixin(accessModes)`](#fn-specworkvolumeclaimtemplatewithaccessmodesmixin)
@@ -10726,6 +10744,150 @@ withValuesMixin(values)
 "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.volumeClaimTemplates.status
+
+"status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims"
+
+### fn spec.volumeClaimTemplates.status.withAccessModes
+
+```ts
+withAccessModes(accessModes)
+```
+
+"accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
+
+### fn spec.volumeClaimTemplates.status.withAccessModesMixin
+
+```ts
+withAccessModesMixin(accessModes)
+```
+
+"accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.volumeClaimTemplates.status.withAllocatedResources
+
+```ts
+withAllocatedResources(allocatedResources)
+```
+
+"allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature."
+
+### fn spec.volumeClaimTemplates.status.withAllocatedResourcesMixin
+
+```ts
+withAllocatedResourcesMixin(allocatedResources)
+```
+
+"allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.volumeClaimTemplates.status.withCapacity
+
+```ts
+withCapacity(capacity)
+```
+
+"capacity represents the actual resources of the underlying volume."
+
+### fn spec.volumeClaimTemplates.status.withCapacityMixin
+
+```ts
+withCapacityMixin(capacity)
+```
+
+"capacity represents the actual resources of the underlying volume."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.volumeClaimTemplates.status.withConditions
+
+```ts
+withConditions(conditions)
+```
+
+"conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'."
+
+### fn spec.volumeClaimTemplates.status.withConditionsMixin
+
+```ts
+withConditionsMixin(conditions)
+```
+
+"conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.volumeClaimTemplates.status.withPhase
+
+```ts
+withPhase(phase)
+```
+
+"phase represents the current phase of PersistentVolumeClaim."
+
+### fn spec.volumeClaimTemplates.status.withResizeStatus
+
+```ts
+withResizeStatus(resizeStatus)
+```
+
+"resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature."
+
+## obj spec.volumeClaimTemplates.status.conditions
+
+"conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'."
+
+### fn spec.volumeClaimTemplates.status.conditions.withLastProbeTime
+
+```ts
+withLastProbeTime(lastProbeTime)
+```
+
+"lastProbeTime is the time we probed the condition."
+
+### fn spec.volumeClaimTemplates.status.conditions.withLastTransitionTime
+
+```ts
+withLastTransitionTime(lastTransitionTime)
+```
+
+"lastTransitionTime is the time the condition transitioned from one status to another."
+
+### fn spec.volumeClaimTemplates.status.conditions.withMessage
+
+```ts
+withMessage(message)
+```
+
+"message is the human-readable message indicating details about last transition."
+
+### fn spec.volumeClaimTemplates.status.conditions.withReason
+
+```ts
+withReason(reason)
+```
+
+"reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized."
+
+### fn spec.volumeClaimTemplates.status.conditions.withStatus
+
+```ts
+withStatus(status)
+```
+
+
+
+### fn spec.volumeClaimTemplates.status.conditions.withType
+
+```ts
+withType(type)
+```
+
+"PersistentVolumeClaimConditionType is a valid value of PersistentVolumeClaimCondition.Type"
 
 ## obj spec.workVolumeClaimTemplate
 
