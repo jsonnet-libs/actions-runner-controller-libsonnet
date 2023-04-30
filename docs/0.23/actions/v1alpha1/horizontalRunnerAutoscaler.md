@@ -72,7 +72,6 @@ permalink: /0.23/actions/v1alpha1/horizontalRunnerAutoscaler/
         * [`fn withNamesMixin(names)`](#fn-specscaleuptriggersgithubeventcheckrunwithnamesmixin)
         * [`fn withRepositories(repositories)`](#fn-specscaleuptriggersgithubeventcheckrunwithrepositories)
         * [`fn withRepositoriesMixin(repositories)`](#fn-specscaleuptriggersgithubeventcheckrunwithrepositoriesmixin)
-        * [`fn withStatus(status)`](#fn-specscaleuptriggersgithubeventcheckrunwithstatus)
         * [`fn withTypes(types)`](#fn-specscaleuptriggersgithubeventcheckrunwithtypes)
         * [`fn withTypesMixin(types)`](#fn-specscaleuptriggersgithubeventcheckrunwithtypesmixin)
       * [`obj spec.scaleUpTriggers.githubEvent.pullRequest`](#obj-specscaleuptriggersgithubeventpullrequest)
@@ -595,14 +594,6 @@ withRepositoriesMixin(repositories)
 "Repositories is a list of GitHub repositories. Any check_run event whose repository matches one of repositories in the list can trigger autoscaling."
 
 **Note:** This function appends passed data to existing values
-
-### fn spec.scaleUpTriggers.githubEvent.checkRun.withStatus
-
-```ts
-withStatus(status)
-```
-
-
 
 ### fn spec.scaleUpTriggers.githubEvent.checkRun.withTypes
 

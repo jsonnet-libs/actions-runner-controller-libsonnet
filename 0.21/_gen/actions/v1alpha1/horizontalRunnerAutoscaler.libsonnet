@@ -100,8 +100,6 @@
           withRepositories(repositories): { githubEvent+: { checkRun+: { repositories: if std.isArray(v=repositories) then repositories else [repositories] } } },
           '#withRepositoriesMixin':: d.fn(help='"Repositories is a list of GitHub repositories. Any check_run event whose repository matches one of repositories in the list can trigger autoscaling."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='repositories', type=d.T.array)]),
           withRepositoriesMixin(repositories): { githubEvent+: { checkRun+: { repositories+: if std.isArray(v=repositories) then repositories else [repositories] } } },
-          '#withStatus':: d.fn(help='', args=[d.arg(name='status', type=d.T.string)]),
-          withStatus(status): { githubEvent+: { checkRun+: { status: status } } },
           '#withTypes':: d.fn(help='', args=[d.arg(name='types', type=d.T.array)]),
           withTypes(types): { githubEvent+: { checkRun+: { types: if std.isArray(v=types) then types else [types] } } },
           '#withTypesMixin':: d.fn(help='\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='types', type=d.T.array)]),
