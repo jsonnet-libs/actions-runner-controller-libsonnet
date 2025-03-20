@@ -89,7 +89,7 @@
       '#withType':: d.fn(help='"Type is the type of metric to be used for autoscaling. It can be TotalNumberOfQueuedAndInProgressWorkflowRuns or PercentageRunnersBusy."', args=[d.arg(name='type', type=d.T.string)]),
       withType(type): { type: type },
     },
-    '#scaleTargetRef':: d.obj(help='"ScaleTargetRef sis the reference to scaled resource like RunnerDeployment"'),
+    '#scaleTargetRef':: d.obj(help='"ScaleTargetRef is the reference to scaled resource like RunnerDeployment"'),
     scaleTargetRef: {
       '#withKind':: d.fn(help='"Kind is the type of resource being referenced"', args=[d.arg(name='kind', type=d.T.string)]),
       withKind(kind): { spec+: { scaleTargetRef+: { kind: kind } } },

@@ -496,7 +496,7 @@ withType(type)
 
 ## obj spec.scaleTargetRef
 
-"ScaleTargetRef sis the reference to scaled resource like RunnerDeployment"
+"ScaleTargetRef is the reference to scaled resource like RunnerDeployment"
 
 ### fn spec.scaleTargetRef.withKind
 

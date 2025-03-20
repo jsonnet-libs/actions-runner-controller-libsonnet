@@ -40,6 +40,7 @@ permalink: /0.27/actions/v1alpha1/runner/
   * [`fn withDockerEnvMixin(dockerEnv)`](#fn-specwithdockerenvmixin)
   * [`fn withDockerMTU(dockerMTU)`](#fn-specwithdockermtu)
   * [`fn withDockerRegistryMirror(dockerRegistryMirror)`](#fn-specwithdockerregistrymirror)
+  * [`fn withDockerVarRunVolumeSizeLimit(dockerVarRunVolumeSizeLimit)`](#fn-specwithdockervarrunvolumesizelimit)
   * [`fn withDockerVolumeMounts(dockerVolumeMounts)`](#fn-specwithdockervolumemounts)
   * [`fn withDockerVolumeMountsMixin(dockerVolumeMounts)`](#fn-specwithdockervolumemountsmixin)
   * [`fn withDockerdWithinRunnerContainer(dockerdWithinRunnerContainer)`](#fn-specwithdockerdwithinrunnercontainer)
@@ -1782,6 +1783,14 @@ withDockerMTU(dockerMTU)
 
 ```ts
 withDockerRegistryMirror(dockerRegistryMirror)
+```
+
+
+
+### fn spec.withDockerVarRunVolumeSizeLimit
+
+```ts
+withDockerVarRunVolumeSizeLimit(dockerVarRunVolumeSizeLimit)
 ```
 
 
@@ -3782,7 +3791,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.containers.lifecycle.postStart.httpGet.httpHeaders.withValue
 
@@ -3902,7 +3911,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.containers.lifecycle.preStop.httpGet.httpHeaders.withValue
 
@@ -4090,7 +4099,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.containers.livenessProbe.httpGet.httpHeaders.withValue
 
@@ -4322,7 +4331,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.containers.readinessProbe.httpGet.httpHeaders.withValue
 
@@ -4362,7 +4371,7 @@ withPort(port)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.containers.resources.withClaimsMixin
 
@@ -4370,7 +4379,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -4412,7 +4421,7 @@ withRequestsMixin(requests)
 
 ## obj spec.containers.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.containers.resources.claims.withName
 
@@ -4772,7 +4781,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.containers.startupProbe.httpGet.httpHeaders.withValue
 
@@ -5142,7 +5151,7 @@ withSubPathExpr(subPathExpr)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.dockerdContainerResources.withClaimsMixin
 
@@ -5150,7 +5159,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -5192,7 +5201,7 @@ withRequestsMixin(requests)
 
 ## obj spec.dockerdContainerResources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.dockerdContainerResources.claims.withName
 
@@ -5866,7 +5875,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.ephemeralContainers.lifecycle.postStart.httpGet.httpHeaders.withValue
 
@@ -5986,7 +5995,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.ephemeralContainers.lifecycle.preStop.httpGet.httpHeaders.withValue
 
@@ -6174,7 +6183,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.ephemeralContainers.livenessProbe.httpGet.httpHeaders.withValue
 
@@ -6406,7 +6415,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.ephemeralContainers.readinessProbe.httpGet.httpHeaders.withValue
 
@@ -6446,7 +6455,7 @@ withPort(port)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.ephemeralContainers.resources.withClaimsMixin
 
@@ -6454,7 +6463,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -6496,7 +6505,7 @@ withRequestsMixin(requests)
 
 ## obj spec.ephemeralContainers.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.ephemeralContainers.resources.claims.withName
 
@@ -6856,7 +6865,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.ephemeralContainers.startupProbe.httpGet.httpHeaders.withValue
 
@@ -7492,7 +7501,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.initContainers.lifecycle.postStart.httpGet.httpHeaders.withValue
 
@@ -7612,7 +7621,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.initContainers.lifecycle.preStop.httpGet.httpHeaders.withValue
 
@@ -7800,7 +7809,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.initContainers.livenessProbe.httpGet.httpHeaders.withValue
 
@@ -8032,7 +8041,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.initContainers.readinessProbe.httpGet.httpHeaders.withValue
 
@@ -8072,7 +8081,7 @@ withPort(port)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.initContainers.resources.withClaimsMixin
 
@@ -8080,7 +8089,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -8122,7 +8131,7 @@ withRequestsMixin(requests)
 
 ## obj spec.initContainers.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.initContainers.resources.claims.withName
 
@@ -8482,7 +8491,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.initContainers.startupProbe.httpGet.httpHeaders.withValue
 
@@ -8594,7 +8603,7 @@ withSubPathExpr(subPathExpr)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.resources.withClaimsMixin
 
@@ -8602,7 +8611,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -8644,7 +8653,7 @@ withRequestsMixin(requests)
 
 ## obj spec.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.resources.claims.withName
 
@@ -9322,7 +9331,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.sidecarContainers.lifecycle.postStart.httpGet.httpHeaders.withValue
 
@@ -9442,7 +9451,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.sidecarContainers.lifecycle.preStop.httpGet.httpHeaders.withValue
 
@@ -9630,7 +9639,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.sidecarContainers.livenessProbe.httpGet.httpHeaders.withValue
 
@@ -9862,7 +9871,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.sidecarContainers.readinessProbe.httpGet.httpHeaders.withValue
 
@@ -9902,7 +9911,7 @@ withPort(port)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.sidecarContainers.resources.withClaimsMixin
 
@@ -9910,7 +9919,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -9952,7 +9961,7 @@ withRequestsMixin(requests)
 
 ## obj spec.sidecarContainers.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.sidecarContainers.resources.claims.withName
 
@@ -10312,7 +10321,7 @@ withScheme(scheme)
 withName(name)
 ```
 
-"The header field name"
+"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."
 
 ### fn spec.sidecarContainers.startupProbe.httpGet.httpHeaders.withValue
 
@@ -10526,7 +10535,7 @@ withTopologyKey(topologyKey)
 withWhenUnsatisfiable(whenUnsatisfiable)
 ```
 
-"WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,   but giving higher precedence to topologies that would help reduce the   skew. A constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field."
+"WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered \"Unsatisfiable\" for an incoming pod if and only if every possible node assignment for that pod would violate \"MaxSkew\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field."
 
 ## obj spec.topologySpreadConstraints.labelSelector
 
@@ -11144,7 +11153,7 @@ withSizeLimit(sizeLimit)
 
 ## obj spec.volumes.ephemeral
 
-"ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. \n Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity    tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through    a PersistentVolumeClaim (see EphemeralVolumeSource for more    information on the connection between this volume type    and PersistentVolumeClaim). \n Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. \n Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. \n A pod can use both types of ephemeral volumes and persistent volumes at the same time."
+"ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. \n Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). \n Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. \n Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. \n A pod can use both types of ephemeral volumes and persistent volumes at the same time."
 
 ## obj spec.volumes.ephemeral.volumeClaimTemplate
 
@@ -11300,7 +11309,7 @@ withName(name)
 
 ## obj spec.volumes.ephemeral.volumeClaimTemplate.spec.dataSourceRef
 
-"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef   allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef   preserves all values, and generates an error if a disallowed value is   specified. * While dataSource only allows local objects, dataSourceRef allows objects   in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled."
+"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled."
 
 ### fn spec.volumes.ephemeral.volumeClaimTemplate.spec.dataSourceRef.withApiGroup
 
@@ -11344,7 +11353,7 @@ withNamespace(namespace)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.volumes.ephemeral.volumeClaimTemplate.spec.resources.withClaimsMixin
 
@@ -11352,7 +11361,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -11394,7 +11403,7 @@ withRequestsMixin(requests)
 
 ## obj spec.volumes.ephemeral.volumeClaimTemplate.spec.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.volumes.ephemeral.volumeClaimTemplate.spec.resources.claims.withName
 
@@ -12642,7 +12651,7 @@ withStorageClassName(storageClassName)
 withClaims(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.workVolumeClaimTemplate.resources.withClaimsMixin
 
@@ -12650,7 +12659,7 @@ withClaims(claims)
 withClaimsMixin(claims)
 ```
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 **Note:** This function appends passed data to existing values
 
@@ -12692,7 +12701,7 @@ withRequestsMixin(requests)
 
 ## obj spec.workVolumeClaimTemplate.resources.claims
 
-"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable."
+"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \n This field is immutable. It can only be set for containers."
 
 ### fn spec.workVolumeClaimTemplate.resources.claims.withName
 

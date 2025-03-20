@@ -59,7 +59,7 @@
     },
     '#ordinals':: d.obj(help='"ordinals controls the numbering of replica indices in a StatefulSet. The default ordinals behavior assigns a \\"0\\" index to the first replica and increments the index by one for each additional replica requested. Using the ordinals field requires the StatefulSetStartOrdinal feature gate to be enabled, which is alpha."'),
     ordinals: {
-      '#withStart':: d.fn(help="\"start is the number representing the first replica's index. It may be used to number replicas from an alternate index (eg: 1-indexed) over the default 0-indexed names, or to orchestrate progressive movement of replicas from one StatefulSet to another. If set, replica indices will be in the range:   [.spec.ordinals.start, .spec.ordinals.start + .spec.replicas). If unset, defaults to 0. Replica indices will be in the range:   [0, .spec.replicas).\"", args=[d.arg(name='start', type=d.T.integer)]),
+      '#withStart':: d.fn(help="\"start is the number representing the first replica's index. It may be used to number replicas from an alternate index (eg: 1-indexed) over the default 0-indexed names, or to orchestrate progressive movement of replicas from one StatefulSet to another. If set, replica indices will be in the range: [.spec.ordinals.start, .spec.ordinals.start + .spec.replicas). If unset, defaults to 0. Replica indices will be in the range: [0, .spec.replicas).\"", args=[d.arg(name='start', type=d.T.integer)]),
       withStart(start): { spec+: { ordinals+: { start: start } } },
     },
     '#persistentVolumeClaimRetentionPolicy':: d.obj(help='"persistentVolumeClaimRetentionPolicy describes the lifecycle of persistent volume claims created from volumeClaimTemplates. By default, all persistent volume claims are created as needed and retained until manually deleted. This policy allows the lifecycle to be altered, for example by deleting persistent volume claims when their stateful set is deleted, or when their pod is scaled down. This requires the StatefulSetAutoDeletePVC feature gate to be enabled, which is alpha.  +optional"'),
@@ -526,7 +526,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -565,7 +565,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -612,7 +612,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -683,7 +683,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -723,14 +723,14 @@
           },
           '#resources':: d.obj(help='"Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"'),
           resources: {
-            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
             claims: {
               '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
               withName(name): { name: name },
             },
-            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
             withClaims(claims): { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } },
-            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
             withClaimsMixin(claims): { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } },
             '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
             withLimits(limits): { resources+: { limits: limits } },
@@ -818,7 +818,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1027,7 +1027,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -1066,7 +1066,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -1113,7 +1113,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1184,7 +1184,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1224,14 +1224,14 @@
           },
           '#resources':: d.obj(help='"Resources are not allowed for ephemeral containers. Ephemeral containers use spare resources already allocated to the pod."'),
           resources: {
-            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
             claims: {
               '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
               withName(name): { name: name },
             },
-            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
             withClaims(claims): { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } },
-            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
             withClaimsMixin(claims): { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } },
             '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
             withLimits(limits): { resources+: { limits: limits } },
@@ -1319,7 +1319,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1522,7 +1522,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -1561,7 +1561,7 @@
               httpGet: {
                 '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
                 httpHeaders: {
-                  '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                  '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { name: name },
                   '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                   withValue(value): { value: value },
@@ -1608,7 +1608,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1679,7 +1679,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -1719,14 +1719,14 @@
           },
           '#resources':: d.obj(help='"Compute Resources required by this container. Cannot be updated. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"'),
           resources: {
-            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+            '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
             claims: {
               '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
               withName(name): { name: name },
             },
-            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
             withClaims(claims): { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } },
-            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+            '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
             withClaimsMixin(claims): { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } },
             '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
             withLimits(limits): { resources+: { limits: limits } },
@@ -1814,7 +1814,7 @@
             httpGet: {
               '#httpHeaders':: d.obj(help='"Custom headers to set in the request. HTTP allows repeated headers."'),
               httpHeaders: {
-                '#withName':: d.fn(help='"The header field name"', args=[d.arg(name='name', type=d.T.string)]),
+                '#withName':: d.fn(help='"The header field name. This will be canonicalized upon output, so case-variant names will be understood as the same header."', args=[d.arg(name='name', type=d.T.string)]),
                 withName(name): { name: name },
                 '#withValue':: d.fn(help='"The header field value"', args=[d.arg(name='value', type=d.T.string)]),
                 withValue(value): { value: value },
@@ -2056,7 +2056,7 @@
           withNodeTaintsPolicy(nodeTaintsPolicy): { nodeTaintsPolicy: nodeTaintsPolicy },
           '#withTopologyKey':: d.fn(help="\"TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each \u003ckey, value\u003e as a \\\"bucket\\\", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is \\\"kubernetes.io/hostname\\\", each Node is a domain of that topology. And, if TopologyKey is \\\"topology.kubernetes.io/zone\\\", each zone is a domain of that topology. It's a required field.\"", args=[d.arg(name='topologyKey', type=d.T.string)]),
           withTopologyKey(topologyKey): { topologyKey: topologyKey },
-          '#withWhenUnsatisfiable':: d.fn(help="\"WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location,   but giving higher precedence to topologies that would help reduce the   skew. A constraint is considered \\\"Unsatisfiable\\\" for an incoming pod if and only if every possible node assignment for that pod would violate \\\"MaxSkew\\\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.\"", args=[d.arg(name='whenUnsatisfiable', type=d.T.string)]),
+          '#withWhenUnsatisfiable':: d.fn(help="\"WhenUnsatisfiable indicates how to deal with a pod if it doesn't satisfy the spread constraint. - DoNotSchedule (default) tells the scheduler not to schedule it. - ScheduleAnyway tells the scheduler to schedule the pod in any location, but giving higher precedence to topologies that would help reduce the skew. A constraint is considered \\\"Unsatisfiable\\\" for an incoming pod if and only if every possible node assignment for that pod would violate \\\"MaxSkew\\\" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P |   P   |   P   | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won't make it *more* imbalanced. It's a required field.\"", args=[d.arg(name='whenUnsatisfiable', type=d.T.string)]),
           withWhenUnsatisfiable(whenUnsatisfiable): { whenUnsatisfiable: whenUnsatisfiable },
         },
         '#volumes':: d.obj(help='"List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes"'),
@@ -2209,7 +2209,7 @@
             '#withSizeLimit':: d.fn(help='"sizeLimit is the total amount of local storage required for this EmptyDir volume. The size limit is also applicable for memory medium. The maximum usage on memory medium EmptyDir would be the minimum value between the SizeLimit specified here and the sum of memory limits of all containers in a pod. The default is nil which means that the limit is undefined. More info: http://kubernetes.io/docs/user-guide/volumes#emptydir"', args=[d.arg(name='sizeLimit', type=d.T.any)]),
             withSizeLimit(sizeLimit): { emptyDir+: { sizeLimit: sizeLimit } },
           },
-          '#ephemeral':: d.obj(help="\"ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. \\n Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity    tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through    a PersistentVolumeClaim (see EphemeralVolumeSource for more    information on the connection between this volume type    and PersistentVolumeClaim). \\n Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. \\n Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. \\n A pod can use both types of ephemeral volumes and persistent volumes at the same time.\""),
+          '#ephemeral':: d.obj(help="\"ephemeral represents a volume that is handled by a cluster storage driver. The volume's lifecycle is tied to the pod that defines it - it will be created before the pod starts, and deleted when the pod is removed. \\n Use this if: a) the volume is only needed while the pod runs, b) features of normal volumes like restoring from snapshot or capacity tracking are needed, c) the storage driver is specified through a storage class, and d) the storage driver supports dynamic volume provisioning through a PersistentVolumeClaim (see EphemeralVolumeSource for more information on the connection between this volume type and PersistentVolumeClaim). \\n Use PersistentVolumeClaim or one of the vendor-specific APIs for volumes that persist for longer than the lifecycle of an individual pod. \\n Use CSI for light-weight local ephemeral volumes if the CSI driver is meant to be used that way - see the documentation of the driver for more information. \\n A pod can use both types of ephemeral volumes and persistent volumes at the same time.\""),
           ephemeral: {
             '#volumeClaimTemplate':: d.obj(help='"Will be used to create a stand-alone PVC to provision the volume. The pod in which this EphemeralVolumeSource is embedded will be the owner of the PVC, i.e. the PVC will be deleted together with the pod.  The name of the PVC will be `<pod name>-<volume name>` where `<volume name>` is the name from the `PodSpec.Volumes` array entry. Pod validation will reject the pod if the concatenated name is not valid for a PVC (for example, too long). \\n An existing PVC with that name that is not owned by the pod will *not* be used for the pod to avoid using an unrelated volume by mistake. Starting the pod is then blocked until the unrelated PVC is removed. If such a pre-created PVC is meant to be used by the pod, the PVC has to updated with an owner reference to the pod once the pod exists. Normally this should not be necessary, but it may be useful when manually reconstructing a broken cluster. \\n This field is read-only and no changes will be made by Kubernetes to the PVC after it has been created. \\n Required, must not be nil."'),
             volumeClaimTemplate: {
@@ -2243,7 +2243,7 @@
                   '#withName':: d.fn(help='"Name is the name of resource being referenced"', args=[d.arg(name='name', type=d.T.string)]),
                   withName(name): { ephemeral+: { volumeClaimTemplate+: { spec+: { dataSource+: { name: name } } } } },
                 },
-                '#dataSourceRef':: d.obj(help="\"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef   allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef   preserves all values, and generates an error if a disallowed value is   specified. * While dataSource only allows local objects, dataSourceRef allows objects   in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.\""),
+                '#dataSourceRef':: d.obj(help="\"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.\""),
                 dataSourceRef: {
                   '#withApiGroup':: d.fn(help='"APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required."', args=[d.arg(name='apiGroup', type=d.T.string)]),
                   withApiGroup(apiGroup): { ephemeral+: { volumeClaimTemplate+: { spec+: { dataSourceRef+: { apiGroup: apiGroup } } } } },
@@ -2256,14 +2256,14 @@
                 },
                 '#resources':: d.obj(help='"resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"'),
                 resources: {
-                  '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+                  '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
                   claims: {
                     '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
                     withName(name): { name: name },
                   },
-                  '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+                  '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
                   withClaims(claims): { ephemeral+: { volumeClaimTemplate+: { spec+: { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } } } } },
-                  '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+                  '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
                   withClaimsMixin(claims): { ephemeral+: { volumeClaimTemplate+: { spec+: { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } } } } },
                   '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
                   withLimits(limits): { ephemeral+: { volumeClaimTemplate+: { spec+: { resources+: { limits: limits } } } } },
@@ -2799,7 +2799,7 @@
           '#withName':: d.fn(help='"Name is the name of resource being referenced"', args=[d.arg(name='name', type=d.T.string)]),
           withName(name): { spec+: { dataSource+: { name: name } } },
         },
-        '#dataSourceRef':: d.obj(help="\"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef   allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef   preserves all values, and generates an error if a disallowed value is   specified. * While dataSource only allows local objects, dataSourceRef allows objects   in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.\""),
+        '#dataSourceRef':: d.obj(help="\"dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn't specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn't set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While dataSource ignores disallowed values (dropping them), dataSourceRef preserves all values, and generates an error if a disallowed value is specified. * While dataSource only allows local objects, dataSourceRef allows objects in any namespaces. (Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.\""),
         dataSourceRef: {
           '#withApiGroup':: d.fn(help='"APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required."', args=[d.arg(name='apiGroup', type=d.T.string)]),
           withApiGroup(apiGroup): { spec+: { dataSourceRef+: { apiGroup: apiGroup } } },
@@ -2812,14 +2812,14 @@
         },
         '#resources':: d.obj(help='"resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"'),
         resources: {
-          '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+          '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
           claims: {
             '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
             withName(name): { name: name },
           },
-          '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+          '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
           withClaims(claims): { spec+: { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } } },
-          '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+          '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
           withClaimsMixin(claims): { spec+: { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } } },
           '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
           withLimits(limits): { spec+: { resources+: { limits: limits } } },
@@ -2876,6 +2876,8 @@
     withDockerMTU(dockerMTU): { spec+: { dockerMTU: dockerMTU } },
     '#withDockerRegistryMirror':: d.fn(help='', args=[d.arg(name='dockerRegistryMirror', type=d.T.string)]),
     withDockerRegistryMirror(dockerRegistryMirror): { spec+: { dockerRegistryMirror: dockerRegistryMirror } },
+    '#withDockerVarRunVolumeSizeLimit':: d.fn(help='', args=[d.arg(name='dockerVarRunVolumeSizeLimit', type=d.T.any)]),
+    withDockerVarRunVolumeSizeLimit(dockerVarRunVolumeSizeLimit): { spec+: { dockerVarRunVolumeSizeLimit: dockerVarRunVolumeSizeLimit } },
     '#withDockerdWithinRunnerContainer':: d.fn(help='', args=[d.arg(name='dockerdWithinRunnerContainer', type=d.T.boolean)]),
     withDockerdWithinRunnerContainer(dockerdWithinRunnerContainer): { spec+: { dockerdWithinRunnerContainer: dockerdWithinRunnerContainer } },
     '#withEffectiveTime':: d.fn(help='"EffectiveTime is the time the upstream controller requested to sync Replicas. It is usually populated by the webhook-based autoscaler via HRA. It is used to prevent ephemeral runners from unnecessarily recreated."', args=[d.arg(name='effectiveTime', type=d.T.string)]),
@@ -2922,14 +2924,14 @@
     workVolumeClaimTemplate: {
       '#resources':: d.obj(help='"ResourceRequirements describes the compute resource requirements."'),
       resources: {
-        '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."'),
+        '#claims':: d.obj(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."'),
         claims: {
           '#withName':: d.fn(help='"Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container."', args=[d.arg(name='name', type=d.T.string)]),
           withName(name): { name: name },
         },
-        '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."', args=[d.arg(name='claims', type=d.T.array)]),
+        '#withClaims':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."', args=[d.arg(name='claims', type=d.T.array)]),
         withClaims(claims): { spec+: { workVolumeClaimTemplate+: { resources+: { claims: if std.isArray(v=claims) then claims else [claims] } } } },
-        '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
+        '#withClaimsMixin':: d.fn(help='"Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container. \\n This is an alpha field and requires enabling the DynamicResourceAllocation feature gate. \\n This field is immutable. It can only be set for containers."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='claims', type=d.T.array)]),
         withClaimsMixin(claims): { spec+: { workVolumeClaimTemplate+: { resources+: { claims+: if std.isArray(v=claims) then claims else [claims] } } } },
         '#withLimits':: d.fn(help='"Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"', args=[d.arg(name='limits', type=d.T.object)]),
         withLimits(limits): { spec+: { workVolumeClaimTemplate+: { resources+: { limits: limits } } } },
